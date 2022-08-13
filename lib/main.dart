@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/home.dart';
+
 void main(List<String> args) {
   runApp(const BMICalculator());
 }
@@ -9,24 +11,13 @@ class BMICalculator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("BMI Calculator"),
-        centerTitle: true,
+      theme: ThemeData.dark().copyWith(
+        primaryColor: const Color(0xFF111328),
+        scaffoldBackgroundColor: const Color(0xFF383950)
       ),
-      body: const Center(child: Text("Home Screen")),
+      home: const HomeScreen(),
     );
   }
 }
