@@ -10,12 +10,12 @@ class ReusableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10.0),
+      child: child,
+      margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         color: kActiveCardColour,
         borderRadius: BorderRadius.circular(12),
       ),
-      child: child,
     );
   }
 }
