@@ -118,9 +118,19 @@ class HomeScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundButton(icon: Icons.remove),
+                            RoundButton(
+                              icon: Icons.remove,
+                              onPressed: () {
+                                print("item removed");
+                              },
+                            ),
                             const SizedBox(width: 10),
-                            RoundButton(icon: Icons.add)
+                            RoundButton(
+                              icon: Icons.add,
+                              onPressed: () {
+                                print("item added");
+                              },
+                            )
                           ],
                         ),
                       ],
@@ -128,11 +138,67 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: ReusableCard(),
+                  child: ReusableCard(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "AGE",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        const Text(
+                          "60",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundButton(
+                              icon: Icons.remove,
+                              onPressed: () {
+                                print("item removed");
+                              },
+                            ),
+                            const SizedBox(width: 10),
+                            RoundButton(
+                              icon: Icons.add,
+                              onPressed: () {
+                                print("item added");
+                              },
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
+          RawMaterialButton(
+            onPressed: () {
+              print("raw material button pressed");
+            },
+            child: Text(
+              "CALCULATE",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            fillColor: kBottomContainerColour,
+            constraints: BoxConstraints.tightFor(
+              width: double.infinity,
+              height: 56,
+            ),
+          )
         ],
       ),
     );
