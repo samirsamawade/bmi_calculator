@@ -10,6 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  double height = 180;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,9 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
-                    children: const [
+                    children: [
                       Text(
-                        "180",
+                        height.round().toString(),
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w700,
@@ -87,10 +88,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     child: Slider(
-                      value: 180,
+                      value: height,
                       min: 10,
                       max: 300,
-                      onChanged: (newVal) {},
+                      onChanged: (newVal) {
+                        setState(() {
+                          height = newVal;
+                        });
+                      },
                     ),
                   )
                 ],
