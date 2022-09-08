@@ -11,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   double height = 180;
+  int weight = 60;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,8 +119,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         const SizedBox(height: 10),
-                        const Text(
-                          "60",
+                        Text(
+                          weight.toString(),
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w700,
@@ -131,6 +132,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             RoundButton(
                               icon: Icons.remove,
                               onPressed: () {
+                                setState(() {
+                                  if (weight > 10) weight--;
+                                });
                                 print("item removed");
                               },
                             ),
@@ -138,6 +142,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             RoundButton(
                               icon: Icons.add,
                               onPressed: () {
+                                setState(() {
+                                  if (weight < 300) weight++;
+                                });
                                 print("item added");
                               },
                             )
