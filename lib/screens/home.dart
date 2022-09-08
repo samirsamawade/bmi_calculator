@@ -12,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   double height = 180;
   int weight = 60;
+  int age = 20;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,7 +136,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 setState(() {
                                   if (weight > 10) weight--;
                                 });
-                                print("item removed");
                               },
                             ),
                             const SizedBox(width: 10),
@@ -145,7 +145,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 setState(() {
                                   if (weight < 300) weight++;
                                 });
-                                print("item added");
                               },
                             )
                           ],
@@ -167,8 +166,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         const SizedBox(height: 10),
-                        const Text(
-                          "60",
+                        Text(
+                          age.toString(),
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w700,
@@ -180,14 +179,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             RoundButton(
                               icon: Icons.remove,
                               onPressed: () {
-                                print("item removed");
+                                setState(() {
+                                  if (age > 0) age--;
+                                });
                               },
                             ),
                             const SizedBox(width: 10),
                             RoundButton(
                               icon: Icons.add,
                               onPressed: () {
-                                print("item added");
+                                setState(() {
+                                  if (age < 100) age++;
+                                });
                               },
                             )
                           ],
