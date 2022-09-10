@@ -2,6 +2,8 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import '../widgets/widgets.dart';
 
+enum Gender{male, female}
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -13,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   double height = 180;
   int weight = 60;
   int age = 20;
+  Gender selectedGender = Gender.male;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Expanded(
                   child: ReusableCard(
+                    isSelected: selectedGender == Gender.male ? true : false,
+                    onPressed: (() {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    }),
                     child: IconContent(
                       icon: Icons.male,
                       title: "Male",
@@ -35,6 +44,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Expanded(
                   child: ReusableCard(
+                    isSelected: selectedGender == Gender.female ? true : false,
+                    onPressed: (() {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    }),
                     child: IconContent(
                       icon: Icons.female,
                       title: "Female",
