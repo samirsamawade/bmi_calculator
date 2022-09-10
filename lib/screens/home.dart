@@ -1,8 +1,9 @@
 import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/screens/screens.dart';
 import 'package:flutter/material.dart';
 import '../widgets/widgets.dart';
 
-enum Gender{male, female}
+enum Gender { male, female }
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,6 +17,13 @@ class _HomeScreenState extends State<HomeScreen> {
   int weight = 60;
   int age = 20;
   Gender selectedGender = Gender.male;
+
+  void _goToRestScreen() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return ResultScreen();
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -218,9 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           RawMaterialButton(
-            onPressed: () {
-              print("raw material button pressed");
-            },
+            onPressed: _goToRestScreen,
             child: Text(
               "CALCULATE",
               style: TextStyle(
