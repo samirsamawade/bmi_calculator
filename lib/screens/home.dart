@@ -19,9 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Gender selectedGender = Gender.male;
 
   void _goToRestScreen() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return ResultScreen();
-    }));
+    Navigator.push(context, MaterialPageRoute(builder: (_) => ResultScreen()));
   }
 
   @override
