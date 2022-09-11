@@ -7,13 +7,13 @@ class ResultScreen extends StatelessWidget {
 
   String _rsultStatus() {
     if (result < 18) {
-      return "You're Underweight😔";
+      return "You're Underweight 😔";
     } else if (result < 25) {
-      return "You're Healthy Weight😃";
+      return "You're Healthy Weight 😃";
     } else if (result < 30) {
-      return "You're Overweight😔";
+      return "You're Overweight 😔";
     } else {
-      return "You're Obesity😟";
+      return "You're Obesity 😟";
     }
   }
 
@@ -69,7 +69,7 @@ class ResultScreen extends StatelessWidget {
             ),
           ),
           CustomButton(
-            onPressed: () {},
+            onPressed: () => Navigator.pop(context),
             title: "Re-calculate",
           ),
         ],
