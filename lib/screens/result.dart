@@ -5,6 +5,18 @@ class ResultScreen extends StatelessWidget {
   final double result;
   const ResultScreen({Key? key, required this.result}) : super(key: key);
 
+  String _rsultStatus() {
+    if (result < 18) {
+      return "You're Underweight😔";
+    } else if (result < 25) {
+      return "You're Healthy Weight😃";
+    } else if (result < 30) {
+      return "You're Overweight😔";
+    } else {
+      return "You're Obesity😟";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +56,7 @@ class ResultScreen extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      'you are thin😟',
+                      _rsultStatus(),
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w300,
