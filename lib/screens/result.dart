@@ -13,16 +13,53 @@ class ResultScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Your Result',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w300,
-              color: Colors.grey.shade300,
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Text(
+              'Your Result',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w300,
+                color: Colors.grey.shade300,
+              ),
             ),
           ),
-          Expanded(child: ReusableCard())
+          Expanded(
+            child: ReusableCard(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Text(
+                      result.toStringAsFixed(1),
+                      style: TextStyle(
+                        fontSize: 56,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.grey.shade300,
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      'you are thin😟',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w300,
+                        color: Colors.grey.shade400,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          CustomButton(
+            onPressed: () {},
+            title: "Re-calculate",
+          ),
         ],
       ),
     );
