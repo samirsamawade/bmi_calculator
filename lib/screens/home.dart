@@ -2,6 +2,7 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/screens/screens.dart';
 import 'package:flutter/material.dart';
 import '../widgets/widgets.dart';
+import 'dart:math';
 
 enum Gender { male, female }
 
@@ -14,12 +15,20 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   double height = 180;
-  int weight = 60;
+  int weight = 65;
   int age = 20;
   Gender selectedGender = Gender.male;
 
   void _goToRestScreen() {
-    Navigator.push(context, MaterialPageRoute(builder: (_) => ResultScreen()));
+    double _result = weight / pow(height / 100, 2);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => ResultScreen(
+          result: _result,
+        ),
+      ),
+    );
   }
 
   @override
@@ -113,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Slider(
                       value: height,
                       min: 10,
-                      max: 300,
+                      max: 310,
                       onChanged: (newVal) {
                         setState(() {
                           height = newVal;
@@ -223,20 +232,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          RawMaterialButton(
+          CustomButton(
             onPressed: _goToRestScreen,
-            child: Text(
-              "CALCULATE",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            fillColor: kBottomContainerColour,
-            constraints: BoxConstraints.tightFor(
-              width: double.infinity,
-              height: 56,
-            ),
           )
         ],
       ),
